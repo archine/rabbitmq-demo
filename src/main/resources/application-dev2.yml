@@ -1,0 +1,28 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: rabbitmq-demo
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    template:
+      #需要回调时要将该值设置为true
+      mandatory: true
+    #返回回调
+    publisher-returns: true
+    publisher-confirm-type: correlated
+    listener:
+      simple:
+        #并发消费者初始值
+        concurrency: 5
+        #最大值
+        max-concurrency: 20
+        #每个消费者每次监听时可拉取处理的消息数量
+        prefetch: 20
+        #设置为手动签收
+        acknowledge-mode: manual
+swagger:
+  base-package: com.gjing.project.rabbitmq.demo.controller
+  title: RabbitMQ案例

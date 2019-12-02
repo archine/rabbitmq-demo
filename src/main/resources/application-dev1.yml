@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: rabbitmq-demo
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    # 过期时间
+    connection-timeout: 5s
+swagger:
+  base-package: com.gjing.project.rabbitmq.demo.controller
+  title: RabbitMQ案例
